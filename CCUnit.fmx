@@ -1,0 +1,137 @@
+object CurrencyConverter: TCurrencyConverter
+  Left = 0
+  Top = 0
+  ClientHeight = 324
+  ClientWidth = 300
+  FormFactor.Width = 1440
+  FormFactor.Height = 900
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Header: TToolBar
+    Size.Width = 300.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object HeaderLabel: TLabel
+      Align = Contents
+      StyledSettings = [Family, Style]
+      Size.Width = 300.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'toollabel'
+      TextSettings.Font.Size = 18.000000000000000000
+      TextSettings.FontColor = claCadetblue
+      TextSettings.HorzAlign = Center
+      TextSettings.WordWrap = False
+      Text = 'Currency converter'
+    end
+  end
+  object Footer: TToolBar
+    Align = Bottom
+    Position.Y = 276.000000000000000000
+    Size.Width = 300.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'bottomtoolbar'
+    TabOrder = 1
+    object Label1: TLabel
+      Anchors = [akLeft, akTop, akRight]
+      Size.Width = 300.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Label1'
+      Visible = False
+      TabOrder = 0
+    end
+    object Label2: TLabel
+      Anchors = [akLeft, akTop, akRight]
+      Position.Y = 23.000000000000000000
+      Size.Width = 300.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      Text = 'Label2'
+      Visible = False
+      TabOrder = 1
+    end
+  end
+  object Panel1: TPanel
+    Align = Top
+    Position.Y = 48.000000000000000000
+    Size.Width = 300.000000000000000000
+    Size.Height = 49.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object cbFrom: TComboBox
+      Position.Y = 24.000000000000000000
+      Size.Width = 73.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+    end
+    object edFrom: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Anchors = [akLeft, akTop, akRight]
+      TabOrder = 3
+      Position.X = 81.000000000000000000
+      Position.Y = 24.000000000000000000
+      Size.Width = 219.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      OnChange = edFromChange
+      OnChangeTracking = edFromChange
+    end
+  end
+  object Panel2: TPanel
+    Align = Top
+    Position.Y = 97.000000000000000000
+    Size.Width = 300.000000000000000000
+    Size.Height = 56.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    object cbTo: TComboBox
+      Position.Y = 26.000000000000000000
+      Size.Width = 73.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+    end
+    object edTo: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Anchors = [akLeft, akTop, akRight]
+      TabOrder = 3
+      TabStop = False
+      ReadOnly = True
+      Position.X = 81.000000000000000000
+      Position.Y = 26.000000000000000000
+      Size.Width = 219.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+  end
+  object RESTClient1: TRESTClient
+    Params = <>
+    HandleRedirects = False
+    RedirectsWithGET = []
+    SecureProtocols = [SSL2, SSL3, TLS1, TLS11, TLS12, TLS13]
+    RaiseExceptionOn500 = False
+    SynchronizedEvents = False
+    UserAgent = 'Mozilla/5.0 (Embarcadero RAD Studio)'
+    Left = 24
+    Top = 168
+  end
+  object RESTRequest1: TRESTRequest
+    AssignedValues = [rvHandleRedirects, rvAllowCookies]
+    HandleRedirects = False
+    Client = RESTClient1
+    Params = <>
+    Response = RESTResponse1
+    SynchronizedEvents = False
+    Left = 96
+    Top = 176
+  end
+  object RESTResponse1: TRESTResponse
+    Left = 160
+    Top = 176
+  end
+end
